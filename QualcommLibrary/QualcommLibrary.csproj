@@ -1,0 +1,83 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71BAD95B-0373-4126-B4C2-58B099AF4F13}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QualcommLibrary</RootNamespace>
+    <AssemblyName>QualcommLibrary</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.7.4114.6375, Culture=neutral, PublicKeyToken=0e99375e54769942" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationExecutable\ApplicationExecutableHeader.cs" />
+    <Compile Include="ApplicationExecutable\ApplicationExecutableHelper.cs" />
+    <Compile Include="ApplicationExecutable\ApplicationExecutableVerification.cs" />
+    <Compile Include="Protocols\DMSS\DMSSPacket.cs" />
+    <Compile Include="Protocols\DMSS\Enums\CommandName.cs" />
+    <Compile Include="Helpers\CertificateHelper.cs" />
+    <Compile Include="Helpers\CertificateValidationHelper.cs" />
+    <Compile Include="Protocols\HLDC\Crc16Ccitt.cs" />
+    <Compile Include="Protocols\HLDC\HDLCPacketHelper.cs" />
+    <Compile Include="Protocols\HLDC\HDLCTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\RSAHelper.cs" />
+    <Compile Include="Protocols\Sahara\Enum\CmdName.cs" />
+    <Compile Include="Protocols\Sahara\Enum\CommandName.cs" />
+    <Compile Include="Protocols\Sahara\Enum\DeviceModeName.cs" />
+    <Compile Include="Protocols\Sahara\Enum\ErrorCode.cs" />
+    <Compile Include="Protocols\Sahara\SaharaPacket.cs" />
+    <Compile Include="SecondaryExecutable\SecondaryExecutableHeader.cs" />
+    <Compile Include="SecondaryExecutable\SecondaryExecutableHelper.cs" />
+    <Compile Include="SecondaryExecutable\SecondaryExecutableVerification.cs" />
+    <Compile Include="Utilities\ByteUtils\BigEndianReader.cs" />
+    <Compile Include="Utilities\ByteUtils\BigEndianWriter.cs" />
+    <Compile Include="Utilities\ByteUtils\ByteReader.cs" />
+    <Compile Include="Utilities\ByteUtils\ByteUtils.cs" />
+    <Compile Include="Utilities\ByteUtils\ByteWriter.cs" />
+    <Compile Include="Utilities\ByteUtils\LittleEndianReader.cs" />
+    <Compile Include="Utilities\ByteUtils\LittleEndianWriter.cs" />
+    <Compile Include="Utilities\Conversion\BigEndianConverter.cs" />
+    <Compile Include="Utilities\Conversion\Conversion.SimpleTypes.cs" />
+    <Compile Include="Utilities\Conversion\LittleEndianConverter.cs" />
+    <Compile Include="Win32\Enums\Win32Error.cs" />
+    <Compile Include="Win32\Utilities\ComUtils.cs" />
+    <Compile Include="Win32\Utilities\FileStreamEx.cs" />
+    <Compile Include="Win32\Utilities\HandleUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\BouncyCastle.Crypto.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
